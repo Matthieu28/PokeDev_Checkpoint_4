@@ -1,0 +1,57 @@
+CREATE TABLE IF NOT EXISTS role (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS tier (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(25),
+  rate INT,
+  color VARCHAR(25)
+);
+
+CREATE TABLE IF NOT EXISTS pokemon (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    url VARCHAR(255) NOT NULL,
+    name VARCHAR(25) NOT NULL,
+    tierID INT DEFAULT 1,
+    FOREIGN KEY (tierId) REFERENCES tier(id)
+);
+
+CREATE TABLE IF NOT EXISTS avatar (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    url VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS user (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    username VARCHAR(20) NOT NULL,
+    roleID INT DEFAULT 1,
+    avatarID INT DEFAULT 1,
+    FOREIGN KEY (roleId) REFERENCES role(id),
+    FOREIGN KEY (avatarId) REFERENCES avatar(id)
+);
+
+CREATE TABLE IF NOT EXISTS bagpokemon (
+    userId INT NOT NULL,
+    FOREIGN KEY (userId) REFERENCES user (id),
+    pokemonId INT NOT NULL,
+    FOREIGN KEY (pokemonId) REFERENCES pokemon (id)
+);
+
+CREATE TABLE IF NOT EXISTS pokeball (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(25) NOT NULL,
+  url VARCHAR(255) NOT NULL,
+  rate INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS bagBall (
+    userId INT NOT NULL,
+    FOREIGN KEY (userId) REFERENCES user (id),
+    pokeballId INT NOT NULL,
+    FOREIGN KEY (pokeballId) REFERENCES pokeball (id)
+);
+
