@@ -8,10 +8,20 @@ export default function Home() {
     e.preventDefault();
     navigate("/pokedex");
   };
+
+  const handleNavigateCatch = (e) => {
+    e.preventDefault();
+    navigate("/catch");
+  };
+
   return (
     <div className="container-all-home">
       <div className="first-container">
-        <div className="first-container-first">hello</div>
+        <div className="first-container-first">
+          <button type="button" onClick={handleNavigateCatch}>
+            Catch
+          </button>
+        </div>
         <div className="first-container-second">
           <button type="button" onClick={handleNavigate}>
             PokeDex
