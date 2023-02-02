@@ -20,7 +20,7 @@ function App() {
           {currentUser.id && <Route path="/pokedex" element={<PokeDex />} />}
           {currentUser.id && <Route path="/catch" element={<Catch />} />}
           {currentUser.id && <Route path="/bag" element={<Bag />} />}
-          <Route path="*" element={<p>404 Not Found</p>} />
+          <Route path="*" element={<Login />} />
         </Routes>
       </main>
     </div>

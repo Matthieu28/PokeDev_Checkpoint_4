@@ -1,7 +1,10 @@
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
+import { useCurrentUserContext } from "../contexts/CurrentUserContext";
 
 export default function Home() {
+  const { currentUser } = useCurrentUserContext();
+
   const navigate = useNavigate();
 
   const handleNavigate = (e) => {
@@ -37,7 +40,15 @@ export default function Home() {
         </div>
       </div>
       <div className="second-container">
-        <div className="second-container-first">hello</div>
+        <div className="second-container-first">
+          <span
+            style={{
+              color: `${currentUser.roleID === 3 ? "green" : "white"}`,
+            }}
+          >
+            {currentUser.username}
+          </span>
+        </div>
         <div className="second-container-second">
           <div className="avatar-pokemonfav">
             <img

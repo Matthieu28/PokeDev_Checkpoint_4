@@ -17,7 +17,7 @@
   height: 5em;
   background-color: rgb(229, 229, 229);
   clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
-  margin-bottom: 3.5em;
+  margin-bottom: 1.5em;
   padding: 0.25em;
 }
 
@@ -75,9 +75,40 @@
   border-radius: 15px;
 }
 
-.pokediv > img {
-  height: 15em;
-  margin-left: 55em;
+.sprite-pokemon-container {
+  height: 35%;
+  width: 40em;
+  margin-left: 44em;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.sprite-pokemon-container > img {
+  position: absolute;
+  bottom: 0;
+  transform: scale(3);
+  transition: transform 0.5s ease-in-out;
+}
+
+.sprite-pokemon-container:hover > img {
+  transform: scale(3.5) rotate(360deg);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(3);
+  }
+  50% {
+    transform: scale(3.2);
+  }
+  100% {
+    transform: scale(3);
+  }
+}
+
+.sprite-pokemon-container > img {
+  animation: pulse 4s infinite;
 }
 
 .pokediv2 {
@@ -184,6 +215,7 @@
 @media screen and (max-width: 768px) {
   .container-all-catch {
     height: 100%;
+    overflow: hidden;
   }
   .pokeHealBar {
     width: 50%;
@@ -194,9 +226,13 @@
   .healBar {
     width: 60%;
   }
-  .pokediv > img {
-    margin-left: 15em;
-    margin-top: 1em;
+  .sprite-pokemon-container {
+    width: 20em;
+    height: 18em;
+    margin-left: 11em;
+  }
+  .sprite-pokemon-container > img {
+    scale: 2.5;
   }
   .pokediv2 {
     height: 40em;

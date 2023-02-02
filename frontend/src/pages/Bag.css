@@ -1,0 +1,78 @@
+.container-all-bag {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(237, 237, 237, 0.868);
+}
+
+.title-div {
+  width: 100%;
+  height: 10%;
+  background-color: gray;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-div > button {
+  position: absolute;
+  left: 0;
+}
+
+.title-div > span {
+  font-size: 35px;
+  font-weight: bold;
+  color: white;
+}
+
+.container-content-bag {
+  width: 100%;
+  height: 90%;
+  display: flex;
+}
+
+.container-filters {
+  width: 10%;
+  height: 100%;
+  background-color: rgb(220, 220, 220);
+}
+
+.container-pokemon-bag {
+  width: 90%;
+  height: 100%;
+  padding: 2em;
+}
+
+.container-bag-cards {
+  border: 3px solid black;
+  border-radius: 15px;
+  width: 100%;
+  max-height: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+  overflow: scroll;
+  flex-wrap: wrap;
+}
+
+.cards-bag {
+  width: 8em;
+  height: 9em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards-bag > img {
+  height: 6em;
+}
+
+.cards-bag > span {
+  margin-top: 0.5em;
+  font-weight: bold;
+}

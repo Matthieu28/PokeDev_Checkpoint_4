@@ -10,6 +10,7 @@ const Catch = () => {
   const [cooldown, setCooldown] = useState(0);
   const [count, setCount] = useState(0);
   const [currentPokemonId, setCurrentPokemonId] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [formData, setFormData] = useState({
     userId: "",
     pokemonId: "",
@@ -57,7 +58,7 @@ const Catch = () => {
     }
     if (Math.random() < 0.75) {
       // eslint-disable-next-line no-alert
-      alert("Catched");
+      alert("Caught");
       setCount(count + 1);
 
       const dataToPost = {
@@ -122,7 +123,9 @@ const Catch = () => {
             </div>
           </div>
         </div>
-        <img src={currentPokemon.url} alt={currentPokemon.name} />
+        <div className="sprite-pokemon-container">
+          <img src={currentPokemon.url} alt={currentPokemon.name} />
+        </div>
       </div>
       <div className="pokediv2">
         <div className="pokediv2-avatar">
@@ -135,7 +138,7 @@ const Catch = () => {
         <div className="pokediv2-button">
           <div className="spawn-button">
             <button type="button" onClick={handleClickCatch}>
-              {cooldown > 0 ? `${cooldown}s` : "Click"}
+              {cooldown > 0 ? `${cooldown}s` : "Spawn"}
             </button>
           </div>
           <div className="ball-button">
