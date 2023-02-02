@@ -91,10 +91,6 @@
   transition: transform 0.5s ease-in-out;
 }
 
-.sprite-pokemon-container:hover > img {
-  transform: scale(3.5) rotate(360deg);
-}
-
 @keyframes pulse {
   0% {
     transform: scale(3);
@@ -232,7 +228,23 @@
     margin-left: 11em;
   }
   .sprite-pokemon-container > img {
-    scale: 2.5;
+    transform: scale(2.5);
+    transition: transform 0.5s ease-in-out;
+  }
+  @keyframes pulseMobile {
+    0% {
+      transform: scale(2.5);
+    }
+    50% {
+      transform: scale(2.7);
+    }
+    100% {
+      transform: scale(2.5);
+    }
+  }
+
+  .sprite-pokemon-container > img {
+    animation: pulseMobile 4s infinite;
   }
   .pokediv2 {
     height: 40em;
