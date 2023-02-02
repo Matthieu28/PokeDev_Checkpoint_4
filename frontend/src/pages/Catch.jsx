@@ -1,6 +1,7 @@
 import "./Catch.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useCurrentUserContext } from "../contexts/CurrentUserContext";
 
 const Catch = () => {
@@ -10,6 +11,13 @@ const Catch = () => {
   const [count, setCount] = useState(0);
 
   const { currentUser } = useCurrentUserContext();
+
+  const navigate = useNavigate();
+
+  const handleNavigateHome = (e) => {
+    e.preventDefault();
+    navigate("/home");
+  };
 
   const getCatchPokemon = async () => {
     try {
@@ -85,6 +93,7 @@ const Catch = () => {
             src="https://archives.bulbagarden.net/media/upload/9/9a/Spr_B2W2_Red.png"
             alt={currentUser.username}
           />
+          <div className="barnav" />
         </div>
         <div className="pokediv2-button">
           <div className="spawn-button">
@@ -93,11 +102,40 @@ const Catch = () => {
             </button>
           </div>
           <div className="ball-button">
-            <button type="button" onClick={handlePokeball}>
-              PokeBall
-            </button>
+            <div className="ball-title">
+              <span>Your Balls :</span>
+            </div>
+            <div className="ball">
+              <button type="button" onClick={handlePokeball}>
+                <img
+                  src="https://www.pokepedia.fr/images/0/07/Miniature_Pok%C3%A9_Ball_HOME.png"
+                  alt="pokeball"
+                />
+              </button>
+              <button type="button" onClick={handlePokeball}>
+                <img
+                  src="https://www.pokepedia.fr/images/2/23/Miniature_Super_Ball_HOME.png"
+                  alt="superball"
+                />
+              </button>
+              <button type="button" onClick={handlePokeball}>
+                <img
+                  src="https://www.pokepedia.fr/images/a/a2/Miniature_Hyper_Ball_HOME.png"
+                  alt="hyperball"
+                />
+              </button>
+              <button type="button" onClick={handlePokeball}>
+                <img
+                  src="https://www.pokepedia.fr/images/3/34/Miniature_Master_Ball_HOME.png"
+                  alt="masterball"
+                />
+              </button>
+            </div>
           </div>
           <span>Count : {count}</span>
+          <button type="button" onClick={handleNavigateHome}>
+            Home
+          </button>
         </div>
       </div>
     </div>

@@ -8,7 +8,8 @@
 }
 
 .pokediv {
-  height: 28em;
+  height: 85%;
+  padding-top: 2em;
 }
 
 .pokeHealBar {
@@ -16,7 +17,6 @@
   height: 5em;
   background-color: rgb(229, 229, 229);
   clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
-  margin-top: 2em;
   margin-bottom: 3.5em;
   padding: 0.25em;
 }
@@ -83,59 +83,142 @@
 .pokediv2 {
   width: 100%;
   height: 70%;
+  display: flex;
+  align-items: flex-end;
   position: absolute;
   bottom: 0;
-  display: flex;
   overflow: hidden;
 }
 
 .pokediv2-avatar {
-  height: 100%;
   width: 30%;
-  position: absolute;
-  z-index: 10;
-  margin-left: 15em;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
 }
+
 .pokediv2-avatar > img {
-  width: 30em;
+  height: 100%;
+  z-index: 10;
+}
+
+.barnav {
+  width: 100%;
+  height: 25%;
+  background-color: rgb(231, 231, 231);
+  position: absolute;
+  z-index: 9;
+  border-top: 4px solid black;
 }
 
 .pokediv2-button {
-  width: 100%;
+  width: 70%;
+  background-color: rgb(231, 231, 231);
   height: 25%;
-  background-color: gray;
-  position: absolute;
-  bottom: 0;
+  border-top: 4px solid black;
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .spawn-button {
   height: 100%;
-  width: 45%;
   display: flex;
   align-items: center;
 }
 
 .spawn-button > button {
-  font-weight: bold;
+  background-color: rgb(0, 225, 0);
+  border-radius: 15px;
+  color: white;
   font-size: 25px;
-  width: 7em;
+  font-weight: bold;
+  width: 5em;
   height: 2em;
-  margin-left: 4em;
 }
 
 .ball-button {
-  background-color: rgb(214, 214, 214);
-  width: 12em;
   height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  border: 3px solid black;
+  width: 12em;
+  flex-direction: column;
+  overflow: scroll;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 
-.ball-button > button {
-  width: 45%;
-  height: 30%;
+.ball-title {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ball-title > span {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.ball {
+  display: flex;
+  height: 75%;
+  height: 5em;
+  gap: 10px;
+}
+
+.ball > button {
+  padding: 0;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+.ball > button > img {
+  width: 6em;
+}
+
+.pokediv2-button > span {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .container-all-catch {
+    height: 100%;
+  }
+  .pokeHealBar {
+    width: 50%;
+  }
+  .pokeHealBar-inside-in-up > p:nth-child(2) {
+    margin-right: 2em;
+  }
+  .healBar {
+    width: 60%;
+  }
+  .pokediv > img {
+    margin-left: 15em;
+    margin-top: 1em;
+  }
+  .pokediv2 {
+    height: 40em;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .pokediv2-avatar {
+    width: 100%;
+  }
+  .pokediv2-avatar {
+    margin-right: 5em;
+  }
+  .barnav {
+    display: none;
+  }
+  .pokediv2-button {
+    width: 100%;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

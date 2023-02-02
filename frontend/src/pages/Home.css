@@ -89,3 +89,25 @@
   height: 100vh;
   background-color: rgb(207, 207, 207);
 }
+
+@media screen and (max-width: 768px) {
+  .container-all-home {
+    display: block;
+  }
+  .first-container {
+    width: 100%;
+    height: 10em;
+  }
+  .second-container {
+    width: 100%;
+    height: 45em;
+  }
+  .second-container-second {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+  .third-container {
+    width: 100%;
+    height: 30em;
+  }
+}
