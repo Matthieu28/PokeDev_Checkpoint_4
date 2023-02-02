@@ -9,8 +9,17 @@ const Catch = () => {
   const [currentPokemon, setCurrentPokemon] = useState({});
   const [cooldown, setCooldown] = useState(0);
   const [count, setCount] = useState(0);
+  const [currentPokemonId, setCurrentPokemonId] = useState(null);
+  const [formData, setFormData] = useState({
+    userId: "",
+    pokemonId: "",
+  });
 
   const { currentUser } = useCurrentUserContext();
+
+  const getUserId = () => {
+    return currentUser.id;
+  };
 
   const navigate = useNavigate();
 
@@ -25,7 +34,7 @@ const Catch = () => {
         `${import.meta.env.VITE_BACKEND_URL}/api/pokemons`
       );
       setCatchPokemon(data);
-      setCurrentPokemon(data[0]);
+      setCurrentPokemon(data);
     } catch (err) {
       console.error(err);
     }
@@ -33,10 +42,12 @@ const Catch = () => {
 
   const handleClickCatch = () => {
     if (cooldown === 0) {
-      setCurrentPokemon(
-        catchPokemon[Math.floor(Math.random() * catchPokemon.length)]
-      );
+      const randomPokemon =
+        catchPokemon[Math.floor(Math.random() * catchPokemon.length)];
+      setCurrentPokemon(randomPokemon);
+      setCurrentPokemonId(randomPokemon.id);
       setCooldown(2);
+      console.warn(currentPokemon);
     }
   };
 
@@ -48,10 +59,30 @@ const Catch = () => {
       // eslint-disable-next-line no-alert
       alert("Catched");
       setCount(count + 1);
+
+      const dataToPost = {
+        pokemonId: currentPokemonId,
+        userId: getUserId(),
+      };
+      setFormData(dataToPost);
+
+      axios
+        .post(
+          `${import.meta.env.VITE_BACKEND_URL}/api/bagpokemons/`,
+          dataToPost
+        )
+        .then((res) => {
+          console.warn(res.data);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+
       setCurrentPokemon({});
     } else {
       // eslint-disable-next-line no-alert
       alert("Escaped");
+      setCurrentPokemon({});
       setCount(0);
     }
   };
@@ -68,6 +99,12 @@ const Catch = () => {
   useEffect(() => {
     getCatchPokemon();
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      console.warn(currentPokemonId);
+    }, 0);
+  }, [currentPokemonId]);
 
   return (
     <div className="container-all-catch">

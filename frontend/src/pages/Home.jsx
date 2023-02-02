@@ -14,6 +14,11 @@ export default function Home() {
     navigate("/catch");
   };
 
+  const handleNavigateBag = (e) => {
+    e.preventDefault();
+    navigate("/bag");
+  };
+
   return (
     <div className="container-all-home">
       <div className="first-container">
@@ -25,6 +30,9 @@ export default function Home() {
         <div className="first-container-second">
           <button type="button" onClick={handleNavigate}>
             PokeDex
+          </button>
+          <button type="button" onClick={handleNavigateBag}>
+            Bag
           </button>
         </div>
       </div>
