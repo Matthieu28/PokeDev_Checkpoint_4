@@ -26,6 +26,7 @@ export default function MakeList() {
     e.preventDefault();
     navigate("/home");
   };
+
   return (
     <div className="container-all-pokedex">
       <div className="pokedex-title">
