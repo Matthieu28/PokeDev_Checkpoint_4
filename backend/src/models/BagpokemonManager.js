@@ -20,7 +20,7 @@ class BagpokemonManager extends AbstractManager {
 
   findAll() {
     return this.connection.query(
-      `select p.* from  ${this.table} as bp JOIN pokemon as p ON p.id = bp.pokemonId WHERE bp.userId = 1`
+      `select p.*, bp.id as bagId from  ${this.table} as bp JOIN pokemon as p ON p.id = bp.pokemonId WHERE bp.userId = 1`
     );
   }
 }

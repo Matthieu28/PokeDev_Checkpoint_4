@@ -3,6 +3,7 @@ import "./Bag.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import ButtonDelete from "./ButtonDelete";
 
 const Bag = () => {
   const [bagPokemon, setBagPokemon] = useState([]);
@@ -51,6 +52,7 @@ const Bag = () => {
               >
                 <img src={item.url} alt={item.name} />
                 <span>{item.name}</span>
+                <ButtonDelete id={item.bagId} setRefresh={getBagPokemon} />
               </div>
             ))}
           </div>
