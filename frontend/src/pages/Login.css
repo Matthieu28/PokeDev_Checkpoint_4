@@ -95,3 +95,58 @@
   font-size: 25px;
   font-weight: bold;
 }
+
+@media screen and (max-width: 768px) {
+  .container-all {
+    display: block;
+  }
+  .container-left {
+    width: 100%;
+    height: 60em;
+    align-items: baseline;
+    position: absolute;
+    z-index: 9;
+  }
+  .container-left-title {
+    width: 100%;
+    height: 20%;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(2, 0, 36, 0.167);
+    background: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 0.881) 0%,
+      rgba(173, 173, 173, 0.863) 80%
+    );
+  }
+  .container-left-title > span {
+    font-size: 5em;
+  }
+  .container-right {
+    width: 70%;
+    height: 80%;
+    z-index: 10;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 20em;
+    background: rgb(173, 173, 173);
+    background: linear-gradient(
+      90deg,
+      rgba(173, 173, 173, 0.892) 0%,
+      rgba(138, 138, 138, 0.879) 81%,
+      rgba(102, 102, 102, 0.862) 100%
+    );
+  }
+  .login {
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+    padding-top: 0;
+  }
+  .bar {
+    margin-top: 0.25em;
+    margin-bottom: 0.5em;
+    height: 3px;
+  }
+}

@@ -1,0 +1,4 @@
+.container-all-profile {
+  display: flex;
+  flex-direction: column;
+}
